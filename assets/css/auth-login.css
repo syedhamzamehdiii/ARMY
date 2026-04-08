@@ -1,0 +1,201 @@
+/* PAUD operator web login — aligned with Flutter AuthNightBackground + AuthNightCardField */
+:root {
+  --auth-dk: #0d3320;
+  --auth-mid: #061208;
+  --auth-black: #000;
+  --auth-g2: #1a5c38;
+  --auth-input-text: #0f172a;
+  --auth-hint: #64748b;
+  --auth-btn-gray: #c8c8c8;
+  --auth-btn-text: #3a3a3a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body.auth-login-page {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+body.auth-login-page {
+  font-family: "Nunito", sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  background: linear-gradient(180deg, var(--auth-dk) 0%, var(--auth-mid) 45%, var(--auth-black) 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* subtle starfield */
+body.auth-login-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.45) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 70% 8%, rgba(255, 255, 255, 0.35) 50%, transparent 51%),
+    radial-gradient(0.8px 0.8px at 40% 35%, rgba(255, 255, 255, 0.3) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 42%, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
+    radial-gradient(0.9px 0.9px at 22% 55%, rgba(255, 255, 255, 0.25) 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 55% 18%, rgba(255, 255, 255, 0.3) 50%, transparent 51%);
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* forest silhouette */
+body.auth-login-page::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22vh;
+  background: linear-gradient(to top, #010403 0%, transparent 100%);
+  clip-path: polygon(
+    0% 100%,
+    0% 55%,
+    8% 48%,
+    15% 62%,
+    22% 42%,
+    30% 58%,
+    38% 38%,
+    45% 52%,
+    52% 35%,
+    60% 50%,
+    68% 40%,
+    75% 55%,
+    82% 45%,
+    90% 60%,
+    100% 48%,
+    100% 100%
+  );
+  pointer-events: none;
+}
+
+.auth-login-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-login-brand {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.5rem, 5vw, 1.75rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.auth-login-sub {
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: -1.25rem 0 1.75rem;
+  line-height: 1.45;
+}
+
+.auth-field {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e2e8ec;
+  border-radius: 14px;
+  padding: 13px 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.auth-field-ico {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: rgba(13, 51, 32, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--auth-g2);
+}
+
+.auth-field-ico svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.auth-field input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  color: var(--auth-input-text);
+  background: transparent;
+}
+
+.auth-field input::placeholder {
+  color: var(--auth-hint);
+}
+
+.auth-login-error {
+  color: #ffab91;
+  font-size: 0.78rem;
+  text-align: center;
+  margin-bottom: 12px;
+  min-height: 1.2em;
+  line-height: 1.35;
+}
+
+.auth-btn-primary {
+  display: block;
+  width: 100%;
+  padding: 15px 16px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--auth-btn-text);
+  background: var(--auth-btn-gray);
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.auth-btn-primary:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.auth-btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.auth-login-foot {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
+
+.auth-login-foot a {
+  color: rgba(255, 255, 255, 0.65);
+}

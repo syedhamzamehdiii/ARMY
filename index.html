@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAUD · Operator Command Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@400;600;700;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/operator_portal/assets/css/operator.css">
+</head>
+<body data-page="portal" class="auth-checking">
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div class="sb-header">
+    <div class="sb-logo">
+      <div class="ico">⚔️</div>
+      <div>
+        <div class="ttl">PAUD<br>Command Portal</div>
+        <div class="sub">OPERATOR PANEL · CLASSIFIED</div>
+      </div>
+    </div>
+    <div class="sb-user">
+      <div class="sb-av">👤</div>
+      <div>
+        <div class="sb-un">Operator: Faseeh</div>
+        <div class="sb-role">🔐 Senior Operator</div>
+      </div>
+    </div>
+  </div>
+  <div class="sb-sec">Command Modules</div>
+  <nav>
+    <div class="nav-item active" data-nav="dashboard" onclick="showPage('dashboard')">
+      <div class="ni" style="background:rgba(46,125,82,.2);">🏠</div> Dashboard
+    </div>
+    <div class="nav-item" data-nav="database" onclick="showPage('database')">
+      <div class="ni" style="background:rgba(21,101,192,.2);">🗄️</div> Database
+    </div>
+    <div class="nav-item" data-nav="incidents" onclick="showPage('incidents')">
+      <div class="ni" style="background:rgba(198,40,40,.2);">🚨</div> Incident Reports
+      <span class="nbadge">3</span>
+    </div>
+    <div class="nav-item" data-nav="operations" onclick="showPage('operations')">
+      <div class="ni" style="background:rgba(230,81,0,.2);">⚔️</div> Operations
+    </div>
+    <div class="nav-item" data-nav="cdr" onclick="showPage('cdr')">
+      <div class="ni" style="background:rgba(106,27,154,.2);">📡</div> CDRs / IPDRs
+    </div>
+    <div class="nav-item" data-nav="ai" onclick="showPage('ai')">
+      <div class="ni" style="background:rgba(212,175,55,.15);">🤖</div> AI Assistant
+    </div>
+    <div class="nav-item" data-nav="threats" onclick="showPage('threats')">
+      <div class="ni" style="background:rgba(198,40,40,.2);">⚠️</div> Threat Assessment
+      <span class="nbadge">7</span>
+    </div>
+    <div class="nav-item" data-nav="commanders" onclick="showPage('commanders')">
+      <div class="ni" style="background:rgba(78,52,46,.3);">👤</div> Khwarjis Commanders
+    </div>
+  </nav>
+  <div class="sb-footer">
+    <div class="logout-btn">🚪 Secure Logout</div>
+    <div class="classified-tag">CLASSIFIED · PAK ARMY</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <div class="topbar">
+    <div class="topbar-title" id="page-title">Command Dashboard</div>
+    <div class="topbar-right">
+      <div class="alert-pill"><div class="pulse"></div> 2 Active Threats</div>
+      <div class="search-top">🔍 <span>Global search...</span></div>
+      <span style="font-size:1.2rem;cursor:pointer;">🔔</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ═══════════ DASHBOARD ═══════════ -->
+    <div class="page active" id="p-dashboard">
+      <div class="stats-row">
+        <div class="stat-card" style="border-color:var(--blue);">
+          <div><div class="snum" style="color:var(--blue);">142</div><div class="slbl">Total Records</div></div>
+          <div class="sico">🗄️</div>
+        </div>
+        <div class="stat-card" style="border-color:var(--red);">
+          <div><div class="snum" style="color:var(--red);">3</div><div class="slbl">Open Incidents</div></div>
+          <div class="sico">🚨</div>
+        </div>
+        <div class="stat-card" style="border-color:var(--orange);">
+          <div><div class="snum" style="color:var(--orange);">5</div><div class="slbl">Active Ops</div></div>
+          <div class="sico">⚔️</div>
+        </div>
+        <div class="stat-card" style="border-color:var(--red);">
+          <div><div class="snum" style="color:var(--red);">HIGH</div><div class="slbl">Threat Level</div></div>
+          <div class="sico">⚠️</div>
+        </div>
+        <div class="stat-card" style="border-color:var(--purple);">
+          <div><div class="snum" style="color:var(--purple);">1.4K</div><div class="slbl">CDR Entries</div></div>
+          <div class="sico">📡</div>
+        </div>
+        <div class="stat-card" style="border-color:var(--g2);">
+          <div><div class="snum" style="color:var(--g2);">9</div><div class="slbl">Commanders</div></div>
+          <div class="sico">👤</div>
+        </div>
+      </div>
+      <div class="card-title" style="margin-bottom:10px;">Quick Access Modules</div>
+      <div class="module-grid">
+        <div class="module-tile" style="background:linear-gradient(135deg,#1565c0,#0d47a1);" onclick="showPage('database')">
+          <div class="mico">🗄️</div><div class="mtitle">Database</div><div class="mcnt">142 records</div><div class="marrow">›</div>
+        </div>
+        <div class="module-tile" style="background:linear-gradient(135deg,#c62828,#7f0000);" onclick="showPage('incidents')">
+          <div class="mico">🚨</div><div class="mtitle">Incidents</div><div class="mcnt">3 open</div><div class="marrow">›</div>
+        </div>
+        <div class="module-tile" style="background:linear-gradient(135deg,#e65100,#bf360c);" onclick="showPage('operations')">
+          <div class="mico">⚔️</div><div class="mtitle">Operations</div><div class="mcnt">5 active</div><div class="marrow">›</div>
+        </div>
+        <div class="module-tile" style="background:linear-gradient(135deg,#6a1b9a,#4a148c);" onclick="showPage('cdr')">
+          <div class="mico">📡</div><div class="mtitle">CDRs/IPDRs</div><div class="mcnt">1,400+ entries</div><div class="marrow">›</div>
+        </div>
+        <div class="module-tile" style="background:linear-gradient(135deg,#b8860b,#d4af37);" onclick="showPage('ai')">
+          <div class="mico">🤖</div><div class="mtitle">AI Assistant</div><div class="mcnt">Threat Analysis</div><div class="marrow">›</div>
+        </div>
+        <div class="module-tile" style="background:linear-gradient(135deg,#ad1457,#880e4f);" onclick="showPage('threats')">
+          <div class="mico">⚠️</div><div class="mtitle">Threat Reports</div><div class="mcnt">7 pending</div><div class="marrow">›</div>
+        </div>
+        <div class="module-tile" style="background:linear-gradient(135deg,#4e342e,#3e2723);" onclick="showPage('commanders')">
+          <div class="mico">👤</div><div class="mtitle">Commanders</div><div class="mcnt">Khwarjis data</div><div class="marrow">›</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="card">
+          <div class="card-title">Recent Activity</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:.78rem;">
+            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f5f5f5;"><span>🔵 New record added · DB-047</span><span style="color:#aaa;font-size:.68rem;">2h ago</span></div>
+            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f5f5f5;"><span>🔴 Incident filed · Zone-7</span><span style="color:#aaa;font-size:.68rem;">4h ago</span></div>
+            <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f5f5f5;"><span>🟡 CDR uploaded · Target Alpha</span><span style="color:#aaa;font-size:.68rem;">5h ago</span></div>
+            <div style="display:flex;justify-content:space-between;padding:7px 0;"><span>🟢 Op SWIFT updated</span><span style="color:#aaa;font-size:.68rem;">1d ago</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Quick Stats · CDR 7-Day</div>
+          <div class="bar-chart">
+            <div class="bc-bar" style="height:45%;"></div>
+            <div class="bc-bar" style="height:60%;"></div>
+            <div class="bc-bar hl" style="height:100%;"></div>
+            <div class="bc-bar" style="height:72%;"></div>
+            <div class="bc-bar" style="height:55%;"></div>
+            <div class="bc-bar" style="height:80%;"></div>
+            <div class="bc-bar" style="height:38%;"></div>
+          </div>
+          <div class="bc-labels"><div class="bc-label">M</div><div class="bc-label">T</div><div class="bc-label">W</div><div class="bc-label">T</div><div class="bc-label">F</div><div class="bc-label">S</div><div class="bc-label">S</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ DATABASE ═══════════ -->
+    <div class="page" id="p-database">
+      <div class="page-header">
+        <h2>🗄️ Database — Personnel Records</h2>
+        <button class="btn btn-primary" onclick="openModal('addRecord')">➕ Add New Record</button>
+      </div>
+      <div class="tabs">
+        <div class="tab active" onclick="setTab(this)">All Records</div>
+        <div class="tab" onclick="setTab(this)">Tashkeels</div>
+        <div class="tab" onclick="setTab(this)">Geographic</div>
+        <div class="tab" onclick="setTab(this)">Cell / IMEI</div>
+        <div class="tab" onclick="setTab(this)">Family Details</div>
+      </div>
+      <div class="card">
+        <div style="display:flex;gap:10px;margin-bottom:14px;">
+          <input placeholder="🔍  Search by Name, CNIC, Alias, SR#..." style="flex:1;padding:9px 14px;border:1.5px solid #ddd;border-radius:10px;font-size:.8rem;outline:none;font-family:'Nunito',sans-serif;">
+          <select style="padding:9px 14px;border:1.5px solid #ddd;border-radius:10px;font-size:.8rem;font-family:'Nunito',sans-serif;outline:none;"><option>All Areas</option><option>Zone-1</option><option>Zone-4</option><option>Zone-7</option><option>KPK</option><option>FATA</option></select>
+        </div>
+        <table>
+          <thead><tr><th>SR#</th><th>Name S/O</th><th>Alias</th><th>CNIC</th><th>Cell#</th><th>Area</th><th>Tashkeel</th><th>Case Officer</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr onclick="openModal('viewRecord')">
+              <td>001</td><td><strong>Muhammad Tahir</strong><br><span style="font-size:.65rem;color:#888;">S/O Abdul Rehman</span></td>
+              <td><span class="tag tag-orange">Tiger</span></td>
+              <td>42101-XXXXXXX-X</td><td>0300-XXXXXXX</td><td>Zone-7 North</td><td>Lashkar-e-X</td>
+              <td>Capt. Hamza</td><td><span class="tag tag-red">Active</span></td>
+              <td><button class="btn btn-outline btn-sm">View</button></td>
+            </tr>
+            <tr onclick="openModal('viewRecord')">
+              <td>002</td><td><strong>Zubair Khan</strong><br><span style="font-size:.65rem;color:#888;">S/O Gul Khan</span></td>
+              <td><span class="tag tag-purple">Cobra</span></td>
+              <td>54400-XXXXXXX-X</td><td>0312-XXXXXXX</td><td>FATA</td><td>JuA</td>
+              <td>Maj. Faseeh</td><td><span class="tag tag-green">Arrested</span></td>
+              <td><button class="btn btn-outline btn-sm">View</button></td>
+            </tr>
+            <tr onclick="openModal('viewRecord')">
+              <td>003</td><td><strong>Imran Shah</strong><br><span style="font-size:.65rem;color:#888;">S/O Shah Wali</span></td>
+              <td><span class="tag tag-red">Viper</span></td>
+              <td>21304-XXXXXXX-X</td><td>0344-XXXXXXX</td><td>KPK</td><td>TTP-X</td>
+              <td>Capt. Rafay</td><td><span class="tag tag-orange">Under Watch</span></td>
+              <td><button class="btn btn-outline btn-sm">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════ INCIDENTS ═══════════ -->
+    <div class="page" id="p-incidents">
+      <div class="page-header">
+        <h2>🚨 Incident Reports</h2>
+        <button class="btn btn-red" onclick="openModal('addIncident')">🚨 File New Incident</button>
+      </div>
+      <div class="stats-row" style="grid-template-columns:repeat(4,1fr);">
+        <div class="stat-card" style="border-color:var(--red);"><div><div class="snum" style="color:var(--red);">3</div><div class="slbl">Open</div></div><div class="sico">🔴</div></div>
+        <div class="stat-card" style="border-color:var(--orange);"><div><div class="snum" style="color:var(--orange);">2</div><div class="slbl">In Progress</div></div><div class="sico">🟠</div></div>
+        <div class="stat-card" style="border-color:var(--g2);"><div><div class="snum" style="color:var(--g2);">8</div><div class="slbl">Resolved</div></div><div class="sico">✅</div></div>
+        <div class="stat-card" style="border-color:var(--blue);"><div><div class="snum" style="color:var(--blue);">13</div><div class="slbl">Total</div></div><div class="sico">📋</div></div>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>ID</th><th>Title</th><th>Severity</th><th>Zone</th><th>Operation</th><th>Date</th><th>Reported By</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>INC-001</td><td><strong>IED Detection · Supply Route</strong></td><td><span class="tag tag-red">HIGH</span></td><td>Zone-7</td><td>SWIFT</td><td>30 Mar</td><td>Faseeh</td><td><span class="tag tag-red">Open</span></td><td><button class="btn btn-outline btn-sm">Details</button></td></tr>
+            <tr><td>INC-002</td><td><strong>Suspicious Vehicles · Border</strong></td><td><span class="tag tag-orange">MEDIUM</span></td><td>Border-12</td><td>—</td><td>29 Mar</td><td>Rafay</td><td><span class="tag tag-orange">In Progress</span></td><td><button class="btn btn-outline btn-sm">Details</button></td></tr>
+            <tr><td>INC-003</td><td><strong>Intel Tip · Informant #4</strong></td><td><span class="tag tag-teal">LOW</span></td><td>Zone-2</td><td>—</td><td>28 Mar</td><td>Hamza</td><td><span class="tag tag-green">Under Review</span></td><td><button class="btn btn-outline btn-sm">Details</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════ OPERATIONS ═══════════ -->
+    <div class="page" id="p-operations">
+      <div class="page-header">
+        <h2>⚔️ Operations</h2>
+        <button class="btn btn-primary" onclick="openModal('addOp')">➕ New Operation</button>
+      </div>
+      <div class="stats-row" style="grid-template-columns:repeat(3,1fr);">
+        <div class="stat-card" style="border-color:var(--g2);"><div><div class="snum" style="color:var(--g2);">3</div><div class="slbl">Active</div></div><div class="sico">🟢</div></div>
+        <div class="stat-card" style="border-color:var(--orange);"><div><div class="snum" style="color:var(--orange);">2</div><div class="slbl">Pending</div></div><div class="sico">🟡</div></div>
+        <div class="stat-card" style="border-color:var(--blue);"><div><div class="snum" style="color:var(--blue);">8</div><div class="slbl">Completed</div></div><div class="sico">✅</div></div>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>Code Name</th><th>Type</th><th>Area</th><th>Personnel</th><th>Started</th><th>Objectives</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td><strong>SWIFT EAGLE</strong></td><td><span class="tag tag-red">Counter-Terror</span></td><td>N. Waziristan</td><td>24</td><td>24 Mar</td><td>3/5</td><td><span class="tag tag-green">🟢 Active</span></td><td><button class="btn btn-outline btn-sm">Manage</button></td></tr>
+            <tr><td><strong>IRON SHIELD</strong></td><td><span class="tag tag-blue">Cordon & Search</span></td><td>FATA</td><td>18</td><td>28 Mar</td><td>1/5</td><td><span class="tag tag-green">🟢 Active</span></td><td><button class="btn btn-outline btn-sm">Manage</button></td></tr>
+            <tr><td><strong>STEEL NET</strong></td><td><span class="tag tag-orange">Surveillance</span></td><td>KPK Border</td><td>12</td><td>01 Apr</td><td>0/4</td><td><span class="tag tag-orange">🟡 Pending</span></td><td><button class="btn btn-outline btn-sm">Manage</button></td></tr>
+            <tr><td><strong>THUNDER</strong></td><td><span class="tag tag-purple">Strike Op</span></td><td>Khyber</td><td>32</td><td>01 Mar</td><td>6/6</td><td><span class="tag tag-blue">✅ Completed</span></td><td><button class="btn btn-outline btn-sm">Manage</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════ CDRs / IPDRs ═══════════ -->
+    <div class="page" id="p-cdr">
+      <div class="page-header">
+        <h2>📡 CDRs / IPDRs · Analysis</h2>
+        <button class="btn btn-primary" onclick="openModal('uploadCDR')">📤 Upload Data</button>
+      </div>
+      <div class="stats-row" style="grid-template-columns:repeat(4,1fr);">
+        <div class="stat-card" style="border-color:var(--purple);"><div><div class="snum" style="color:var(--purple);">1,412</div><div class="slbl">CDR Records</div></div><div class="sico">📞</div></div>
+        <div class="stat-card" style="border-color:var(--blue);"><div><div class="snum" style="color:var(--blue);">387</div><div class="slbl">IPDR Entries</div></div><div class="sico">🌐</div></div>
+        <div class="stat-card" style="border-color:var(--orange);"><div><div class="snum" style="color:var(--orange);">56</div><div class="slbl">Targets</div></div><div class="sico">🎯</div></div>
+        <div class="stat-card" style="border-color:var(--red);"><div><div class="snum" style="color:var(--red);">9</div><div class="slbl">Networks</div></div><div class="sico">🔗</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px;">
+        <div class="card">
+          <div class="card-title">Target CDR Analysis</div>
+          <table>
+            <thead><tr><th>Target ID</th><th>Cell #</th><th>Total Calls</th><th>Unique Contacts</th><th>Area</th><th>Last Active</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>TGT-Alpha</td><td>0300-XXXXXXX</td><td>347</td><td>12</td><td>Zone-7</td><td>30 Mar</td><td><button class="btn btn-outline btn-sm">Analyze</button></td></tr>
+              <tr><td>TGT-Bravo</td><td>0312-XXXXXXX</td><td>189</td><td>7</td><td>FATA</td><td>28 Mar</td><td><button class="btn btn-outline btn-sm">Analyze</button></td></tr>
+              <tr><td>TGT-Charlie</td><td>0344-XXXXXXX</td><td>562</td><td>24</td><td>KPK</td><td>29 Mar</td><td><button class="btn btn-outline btn-sm">Analyze</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Upload CDR / IPDR</div>
+          <div class="upload-zone">
+            <div class="ui">📡</div>
+            <div style="font-weight:800;color:#444;font-size:.82rem;">Drop CDR / IPDR File</div>
+            <div style="font-size:.7rem;margin-top:4px;">CSV, XLS, PDF supported</div>
+          </div>
+          <div class="form-group" style="margin-top:10px;">
+            <label>Target Name / ID</label>
+            <input placeholder="e.g. TGT-Delta">
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <label>Cell / IMEI</label>
+            <input placeholder="0300-XXXXXXX">
+          </div>
+          <button class="btn btn-primary" style="margin-top:12px;width:100%;">📤 Upload & Process</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ AI ASSISTANT ═══════════ -->
+    <div class="page" id="p-ai">
+      <div class="page-header"><h2>🤖 AI Command Assistant</h2></div>
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:14px;">
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div class="ai-hero">
+            <div class="ai-orb">🤖</div>
+            <div class="ai-htitle">COMMAND AI · Threat Intelligence</div>
+            <div class="ai-hsub">Assessments · Pattern Analysis · Report Generation</div>
+          </div>
+          <div class="ai-chips" style="margin-top:12px;">
+            <div class="ai-chip" onclick="addAIMsg('Analyze threat level in Zone-7')">⚠️ Zone Threat</div>
+            <div class="ai-chip" onclick="addAIMsg('Summarize CDR patterns for Target Alpha')">📡 CDR Patterns</div>
+            <div class="ai-chip" onclick="addAIMsg('Generate incident summary for this week')">📋 Incident Summary</div>
+            <div class="ai-chip" onclick="addAIMsg('Who are the top active commanders?')">👤 Commanders</div>
+            <div class="ai-chip" onclick="addAIMsg('Draft a threat assessment report for Zone-7')">📝 Draft Report</div>
+          </div>
+          <div class="chat-box" id="chatBox">
+            <div class="msg bot"><strong>COMMAND AI ready.</strong><br>Ask me to analyze threats, review CDR patterns, assess operational risks, or generate intelligence reports. All data stays classified.</div>
+          </div>
+          <div class="chat-input-row">
+            <input class="chat-input" id="chatIn" placeholder="Ask COMMAND AI..." onkeydown="if(event.key==='Enter'){event.preventDefault();sendMsg();}">
+            <button class="send-btn" onclick="sendMsg()">➤</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="card">
+            <div class="card-title">Quick Assessments</div>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:.78rem;">
+              <div style="background:#f5f5f5;border-radius:10px;padding:10px;"><strong>Zone-7 Risk</strong><br><span style="color:var(--red);font-weight:800;">CRITICAL – 85%</span></div>
+              <div style="background:#f5f5f5;border-radius:10px;padding:10px;"><strong>Op SWIFT Progress</strong><br><span style="color:var(--orange);font-weight:800;">60% Objectives Met</span></div>
+              <div style="background:#f5f5f5;border-radius:10px;padding:10px;"><strong>CDR Alert</strong><br><span style="color:var(--purple);font-weight:800;">Unusual spike Mar 27</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Generate Report</div>
+            <div class="form-group"><label>Report Type</label>
+              <select><option>Threat Assessment</option><option>CDR Analysis</option><option>Incident Summary</option><option>Op Debrief</option></select>
+            </div>
+            <div class="form-group" style="margin-top:8px;"><label>Time Period</label>
+              <select><option>Last 7 Days</option><option>Last 30 Days</option><option>Custom</option></select>
+            </div>
+            <button class="btn btn-primary" style="margin-top:10px;width:100%;">🤖 Generate with AI</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ THREATS ═══════════ -->
+    <div class="page" id="p-threats">
+      <div class="page-header">
+        <h2>⚠️ Threat Assessment</h2>
+        <button class="btn btn-red" onclick="openModal('addThreat')">➕ Submit Report</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="card">
+          <div class="card-title">Overall Threat Level</div>
+          <div style="text-align:center;padding:14px 0;">
+            <div style="font-size:3rem;font-weight:900;color:var(--red);font-family:'Orbitron',monospace;letter-spacing:2px;">HIGH</div>
+            <div style="font-size:.72rem;color:#888;margin-top:6px;">Updated: 30 Mar 2026 · 18:30 PKT</div>
+          </div>
+          <div style="height:10px;background:#eee;border-radius:5px;overflow:hidden;margin:8px 0;">
+            <div style="width:72%;height:100%;background:linear-gradient(90deg,#ff9800,#c62828);border-radius:5px;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.62rem;color:#aaa;margin-top:4px;"><span>LOW</span><span>MEDIUM</span><span>HIGH</span><span>CRITICAL</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Zone-wise Threat Level</div>
+          <div class="zone-row"><div class="zone-lbl">Zone-7 (North)</div><div class="zone-bar"><div class="zone-fill" style="width:85%;background:linear-gradient(90deg,#ff9800,var(--red));"></div></div><div class="zone-tag"><span class="tag tag-red">CRITICAL</span></div></div>
+          <div class="zone-row"><div class="zone-lbl">Zone-4 (Border)</div><div class="zone-bar"><div class="zone-fill" style="width:65%;background:linear-gradient(90deg,#ffeb3b,#ff9800);"></div></div><div class="zone-tag"><span class="tag tag-orange">HIGH</span></div></div>
+          <div class="zone-row"><div class="zone-lbl">KPK Urban</div><div class="zone-bar"><div class="zone-fill" style="width:45%;background:linear-gradient(90deg,#8bc34a,#ff9800);"></div></div><div class="zone-tag"><span class="tag tag-orange">MEDIUM</span></div></div>
+          <div class="zone-row"><div class="zone-lbl">Zone-2 (Baloch)</div><div class="zone-bar"><div class="zone-fill" style="width:30%;background:#ffeb3b;"></div></div><div class="zone-tag"><span class="tag tag-teal">LOW</span></div></div>
+          <div class="zone-row"><div class="zone-lbl">HQ Area</div><div class="zone-bar"><div class="zone-fill" style="width:10%;background:#4caf50;"></div></div><div class="zone-tag"><span class="tag tag-green">SECURE</span></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Submitted Threat Reports</div>
+        <table>
+          <thead><tr><th>Report ID</th><th>Title</th><th>Zone</th><th>Risk Level</th><th>Submitted By</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>THR-007</td><td><strong>Armed group movement · Border</strong></td><td>Zone-7</td><td><span class="tag tag-red">CRITICAL</span></td><td>Faseeh</td><td>30 Mar</td><td><span class="tag tag-orange">Under Review</span></td><td><button class="btn btn-outline btn-sm">View</button></td></tr>
+            <tr><td>THR-006</td><td><strong>Financial transfers detected</strong></td><td>FATA</td><td><span class="tag tag-orange">HIGH</span></td><td>Hamza</td><td>29 Mar</td><td><span class="tag tag-green">Approved</span></td><td><button class="btn btn-outline btn-sm">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════ COMMANDERS ═══════════ -->
+    <div class="page" id="p-commanders">
+      <div class="page-header">
+        <h2>👤 Khwarjis Commanders</h2>
+        <button class="btn btn-primary" onclick="openModal('addCmd')">➕ Add Record</button>
+      </div>
+      <div class="stats-row" style="grid-template-columns:repeat(3,1fr);">
+        <div class="stat-card" style="border-color:var(--red);"><div><div class="snum" style="color:var(--red);">4</div><div class="slbl">At Large</div></div><div class="sico">🔴</div></div>
+        <div class="stat-card" style="border-color:var(--blue);"><div><div class="snum" style="color:var(--blue);">3</div><div class="slbl">Arrested</div></div><div class="sico">🔵</div></div>
+        <div class="stat-card" style="border-color:var(--g2);"><div><div class="snum" style="color:var(--g2);">2</div><div class="slbl">Neutralized</div></div><div class="sico">✅</div></div>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>SR#</th><th>Name S/O</th><th>Alias</th><th>Tashkeel</th><th>Area</th><th>HM (PKR)</th><th>Last Seen</th><th>Case Officer</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>C-001</td><td><strong>Cmd. Alpha</strong></td><td><span class="tag tag-orange">The Shadow</span></td><td>TTP-X</td><td>N. Waziristan</td><td style="color:var(--red);font-weight:800;">25L</td><td>28 Mar</td><td>Maj. Hamza</td><td><span class="tag tag-red">At Large</span></td><td><button class="btn btn-outline btn-sm">Details</button></td></tr>
+            <tr><td>C-002</td><td><strong>Cmd. Bravo</strong></td><td><span class="tag tag-purple">Iron Fist</span></td><td>JuA</td><td>KPK</td><td style="color:var(--orange);font-weight:800;">15L</td><td>Arrested</td><td>Capt. Faseeh</td><td><span class="tag tag-blue">Arrested</span></td><td><button class="btn btn-outline btn-sm">Details</button></td></tr>
+            <tr><td>C-003</td><td><strong>Cmd. Charlie</strong></td><td><span class="tag tag-red">Ghost</span></td><td>LeT</td><td>FATA</td><td style="color:var(--red);font-weight:800;">30L</td><td>20 Feb</td><td>Maj. Rafay</td><td><span class="tag tag-red">At Large</span></td><td><button class="btn btn-outline btn-sm">Details</button></td></tr>
+            <tr><td>C-004</td><td><strong>Cmd. Delta</strong></td><td><span class="tag tag-teal">Viper</span></td><td>TTP</td><td>Khyber</td><td>—</td><td>Op Thunder</td><td>Capt. Bilal</td><td><span class="tag tag-green">Neutralized</span></td><td><button class="btn btn-outline btn-sm">Details</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<!-- ═══ MODALS ═══ -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title">Add Record</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body-scroll" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script src="/operator_portal/assets/js/firebase-config.js"></script>
+<script src="/operator_portal/assets/js/operator-auth.js"></script>
+<script type="module" src="/operator_portal/assets/js/paud-firestore.js"></script>
+<script src="/operator_portal/assets/js/operator.js" defer></script>
+</body>
+</html>
