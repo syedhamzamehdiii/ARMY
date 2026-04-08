@@ -3,8 +3,21 @@
  * or optional dummy login (see firebase-config.js).
  */
 var PAUD_DUMMY_SESSION_KEY = "paud_operator_dummy_ok";
-var PAUD_PORTAL_BASE = "/operator_portal/";
-var PAUD_LOGIN_PATH = "/operator_portal/login";
+/**
+ * Root deploy (e.g. Vercel): site lives at /. Local/dev may use /operator_portal/.
+ */
+var PAUD_PORTAL_BASE;
+var PAUD_LOGIN_PATH;
+(function initPaudPortalPaths() {
+  var path = (typeof window !== "undefined" && window.location && window.location.pathname) || "";
+  if (path.indexOf("/operator_portal") === 0) {
+    PAUD_PORTAL_BASE = "/operator_portal/";
+    PAUD_LOGIN_PATH = "/operator_portal/login.html";
+    return;
+  }
+  PAUD_PORTAL_BASE = "/";
+  PAUD_LOGIN_PATH = "/login.html";
+})();
 
 function isDummyAuthEnabled() {
   var d = window.__OPERATOR_DUMMY_AUTH__;
