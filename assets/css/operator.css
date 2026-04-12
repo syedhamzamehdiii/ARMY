@@ -69,6 +69,12 @@ body {
   justify-content: center;
   font-size: 1.2rem;
   flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.sb-brand-sep {
+  opacity: 0.75;
+  font-weight: 600;
 }
 
 .sb-logo .ttl {
@@ -528,6 +534,113 @@ tbody td {
   color: var(--teal);
 }
 
+/* Database — Tashkeel officers (commanders list only) */
+.tashkeel-commanders-table thead th:last-child,
+.tashkeel-commanders-table tbody td:last-child {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tashkeel-commanders-table .db-officer-action-btns {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Database — Tashkeel officers */
+.tashkeel-officers-table tbody tr {
+  cursor: default;
+}
+
+.tashkeel-officers-table tbody tr:hover {
+  background: #f8fdf8;
+}
+
+.db-sr-photo-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.db-officer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #90caf9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.db-officer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.db-officer-action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.db-officer-action-btns .btn {
+  font-size: 0.65rem;
+  padding: 5px 10px;
+}
+
+.commander-members-modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+}
+
+.commander-members-modal-table th,
+.commander-members-modal-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.commander-members-modal-table thead th {
+  background: #f5f5f5;
+  font-weight: 700;
+  font-size: 0.68rem;
+}
+
+.commander-members-empty {
+  text-align: center;
+  padding: 24px;
+  color: #888;
+  font-size: 0.82rem;
+}
+
+.db-members-page-sub {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: #666;
+  max-width: 640px;
+  line-height: 1.45;
+}
+
+.personnel-footer--split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.personnel-footer--split .btn-delete-commander {
+  margin-right: auto;
+}
+
 .tabs {
   display: flex;
   gap: 4px;
@@ -667,6 +780,92 @@ tbody td {
   max-height: 88vh;
 }
 
+.modal.modal-report-detail.modal-member-record {
+  max-width: min(1040px, 98vw);
+}
+
+.member-record-readonly-wrap {
+  max-height: min(72vh, 680px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.member-record-readonly-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .member-record-readonly-main {
+    grid-template-columns: 1fr minmax(168px, 208px);
+  }
+}
+
+.member-record-photo-aside {
+  border: 2px dashed #cfd8dc;
+  border-radius: 12px;
+  background: #fafafa;
+  padding: 14px 12px;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.member-record-photo-img {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.member-record-photo-placeholder strong {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #555;
+}
+
+.member-record-photo-placeholder .member-record-photo-avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 4px;
+  font-size: 1.1rem;
+}
+
+.member-record-photo-caption {
+  display: block;
+  font-size: 0.72rem;
+  color: #888;
+}
+
+.member-record-details-empty {
+  border-style: dashed;
+}
+
+.pf-placeholder {
+  color: #999;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.member-record-files .member-record-files-list {
+  flex: 1;
+  min-width: 0;
+}
+
+.member-record-status-grid.profile-fields {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin-bottom: 8px;
+}
+
 .report-detail-fields {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -722,6 +921,18 @@ tbody td {
   border-bottom: none;
 }
 
+.report-file-row--readonly {
+  justify-content: flex-start;
+}
+
+.member-record-files--readonly {
+  margin-top: 8px;
+}
+
+.member-record-files--readonly .pr-files-slots-row {
+  margin-top: 0;
+}
+
 .report-file-meta {
   display: flex;
   flex-direction: column;
@@ -757,6 +968,13 @@ tbody td {
   min-width: 8px;
 }
 
+/* Reports page: Details / View opens full record — comfortable tap targets on small screens */
+#p-incidents .card table tbody td:last-child .btn {
+  min-height: 40px;
+  padding: 8px 14px;
+  white-space: nowrap;
+}
+
 .report-edit-readonly {
   background: #f0f0f0 !important;
   color: #666 !important;
@@ -768,6 +986,25 @@ tbody td {
   color: #888;
   margin: 8px 0 0;
   font-style: italic;
+}
+
+.report-add-attachments .report-add-attachments-input {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--input-radius);
+  background: #fafcfa;
+  cursor: pointer;
+}
+
+.report-add-attachments-hint {
+  margin: 8px 0 0;
+  font-size: 0.68rem;
+  color: #666;
+  line-height: 1.4;
 }
 
 .op-table-actions {
@@ -1122,6 +1359,10 @@ button.prism-stat-btn.prism-stat-btn--active {
   margin-bottom: 12px;
 }
 
+.pr-files-toolbar--upload-only {
+  justify-content: flex-start;
+}
+
 .pr-files-slots-row {
   display: flex;
   flex-wrap: wrap;
@@ -1392,10 +1633,11 @@ button.prism-stat-btn.prism-stat-btn--active {
 }
 
 .zone-lbl {
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  width: 140px;
+  width: 200px;
   flex-shrink: 0;
+  line-height: 1.25;
 }
 
 .zone-bar {
@@ -1549,7 +1791,7 @@ body.auth-ready {
   color: #4e342e;
 }
 
-.tr-status-box--ariel {
+.tr-status-box--arial {
   border-color: #4682b4;
   color: #2f5f8f;
 }
@@ -1575,7 +1817,7 @@ body.auth-ready {
   border-radius: 6px;
   font-size: 0.68rem;
   font-weight: 800;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .tr-tag--eliminated {
@@ -1614,7 +1856,7 @@ body.auth-ready {
   border: 1px solid rgba(109, 76, 65, 0.35);
 }
 
-.tr-tag--ariel {
+.tr-tag--arial {
   background: rgba(70, 130, 180, 0.12);
   color: #1e4d7a;
   border: 1px solid rgba(70, 130, 180, 0.4);
@@ -1733,4 +1975,38 @@ body.auth-ready {
     min-width: 0;
     flex: 1;
   }
+}
+
+/* Reports → Incident table: description one-line + clickable … */
+.incident-desc-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 18rem;
+  min-width: 6rem;
+}
+
+.incident-desc-truncate {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.incident-desc-more {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--g2);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.incident-desc-more:hover {
+  color: var(--red);
 }

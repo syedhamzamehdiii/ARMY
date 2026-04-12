@@ -1,5 +1,5 @@
 /**
- * PAUD operator portal — Firebase Auth + Firestore role check,
+ * CT Command Portal — Firebase Auth + Firestore role check,
  * or optional dummy login (see firebase-config.js).
  */
 var PAUD_DUMMY_SESSION_KEY = "paud_operator_dummy_ok";
@@ -51,7 +51,7 @@ function clearDummySession() {
   const cfg = window.__FIREBASE_CONFIG__;
   if (!cfg || !cfg.apiKey) {
     console.error(
-      "[PAUD] Missing firebase-config.js — operators cannot sign in until it is configured."
+      "[CT Portal] Missing firebase-config.js — operators cannot sign in until it is configured."
     );
     return;
   }
@@ -65,7 +65,7 @@ function clearDummySession() {
   try {
     firebase.initializeApp(cleaned);
   } catch (e) {
-    console.error("[PAUD] Firebase init failed:", e);
+    console.error("[CT Portal] Firebase init failed:", e);
   }
 })();
 
@@ -91,10 +91,10 @@ function verifyOperatorRole(uid) {
       return role === "operator";
     })
     .catch(function (err) {
-      console.error("[PAUD] Firestore read failed:", err);
+      console.error("[CT Portal] Firestore read failed:", err);
       if (err && err.code === "permission-denied") {
         console.error(
-          "[PAUD] Allow authenticated users to read their own users/{uid} document (see firestore.rules)."
+          "[CT Portal] Allow authenticated users to read their own users/{uid} document (see firestore.rules)."
         );
         return Promise.reject(err);
       }
@@ -224,7 +224,7 @@ function initLoginPageFirebase() {
           firebase.auth().signOut().catch(function () {});
         } else if (err && err.message === "OPERATOR_ONLY") {
           showLoginError(
-            "This account is not an operator. Use an operator profile created by your soldier in PAUD."
+            "This account is not an operator. Use an operator profile created from the companion mobile app."
           );
         } else if (err && err.code === "auth/invalid-credential") {
           showLoginError("Invalid email or password.");

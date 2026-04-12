@@ -1,5 +1,5 @@
 /**
- * Firebase Web SDK — must match the same Firebase project as the PAUD mobile app.
+ * Firebase Web SDK — must match the same Firebase project as the companion mobile app.
  *
  * Operator web login uses Email/Password (same accounts created in the app).
  * If sign-in fails: add a Web app in Firebase Console → Project settings → Your apps → Web,

@@ -1,4 +1,4 @@
-/* PAUD operator web login — aligned with Flutter AuthNightBackground + AuthNightCardField */
+/* CT Command Portal — operator web login */
 :root {
   --auth-dk: #0d3320;
   --auth-mid: #061208;
@@ -88,21 +88,42 @@ body.auth-login-page::after {
   max-width: 400px;
 }
 
+.auth-login-brand-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-login-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
 .auth-login-brand {
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(1.5rem, 5vw, 1.75rem);
+  font-size: clamp(1.15rem, 4vw, 1.45rem);
   font-weight: 700;
   text-align: center;
-  letter-spacing: 0.08em;
-  margin-bottom: 2rem;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
   color: #fff;
+}
+
+.auth-brand-sep {
+  opacity: 0.8;
+  font-weight: 600;
 }
 
 .auth-login-sub {
   text-align: center;
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.72);
-  margin: -1.25rem 0 1.75rem;
+  margin: 0 0 1.75rem;
   line-height: 1.45;
 }
 
